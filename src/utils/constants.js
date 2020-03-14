@@ -1,8 +1,10 @@
+const domain = 'gehma.aufabier.at';
+
 export const RoomURLs = {
 	Tisch1: {
 		jitsi: {
-			domain: 'interspace.geleeroyale.work',
-			roomName: 'Tisch1'
+			domain,
+			roomName: 'tisch1'
 		},
 		mozillaHub: {
 			externalUrl: 'https://hubs.mozilla.com/nKCuNrg/house-of-defiance'
@@ -13,7 +15,7 @@ export const RoomURLs = {
 		}
 	},
 	Tisch2: {
-		jitsi: { domain: 'interspace.geleeroyale.work', roomName: 'Tisch2' },
+		jitsi: { domain, roomName: 'tisch2' },
 		mozillaHub: {
 			externalUrl: 'https://hubs.mozilla.com/eJZGNU5/house-of-daos'
 		},
@@ -24,8 +26,8 @@ export const RoomURLs = {
 	},
 	Tisch3: {
 		jitsi: {
-			domain: 'interspace.geleeroyale.work',
-			roomName: 'Tisch3'
+			domain,
+			roomName: 'tisch3'
 		},
 		mozillaHub: {
 			externalUrl: 'https://hubs.mozilla.com/tpKKcfA/house-of-adoption'
@@ -37,8 +39,8 @@ export const RoomURLs = {
 	},
 	Tisch4: {
 		jitsi: {
-			domain: 'interspace.geleeroyale.work',
-			roomName: 'Tisch4'
+			domain,
+			roomName: 'tisch4'
 		},
 		mozillaHub: {
 			externalUrl: 'https://hubs.mozilla.com/nx5rV57/stress-test-arena'
@@ -49,7 +51,10 @@ export const RoomURLs = {
 		}
 	},
 	Tisch5: {
-		jitsi: { domain: 'interspace.geleeroyale.work', roomName: 'Tisch5' },
+		jitsi: {
+			domain,
+			roomName: 'tisch5'
+		},
 		mozillaHub: { externalUrl: 'https://hubs.mozilla.com/LmrJQqL/raid-guild' },
 		youtube: {
 			videoId: 'f2bnDe5-3mM',
