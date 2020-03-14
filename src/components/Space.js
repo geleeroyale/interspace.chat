@@ -10,17 +10,26 @@ const portalStyle = {
 };
 
 const Headline = styled.h6`
-	font-weight: 100;
+	color: black;
+	font-weight: 600;
 	font-size: 1.3rem;
 	padding: 1rem;
+	background: white;
+
+	a {
+		font-weight: 100;
+		color: red;
+		text-decoration: underline;
+	}
 `;
 
 const SpaceSelector = styled.nav`
 	padding-bottom: 1rem;
 `;
 
-const SpaceInfo = styled.p`
+const SpaceInfo = styled.div`
 	font-size: 2rem;
+	color: black;
 `;
 
 const CurrentSpace = styled.span`
@@ -107,10 +116,10 @@ const Space = () => {
 					<div class='modal-content'>
 						<img src={Biere} alt='logo' className='modal_logo'></img>
 						<p className='modal_text'>
-							Genießen Sie die lauschige Atmosphäre in unserer Taverne.
+							Genieße die lauschige Atmosphäre in unserer Taverne.
 						</p>
 						<p className='modal_text'>
-							Setzen Sie sich an einen Tisch der Ihnen zusagt.
+							Setz dich an einen Tisch der Dir zusagt.
 						</p>
 						<p className='modal_text'>
 							Benötigt Chrome, screen sharing benötigt die Jitsi Chrome
@@ -128,6 +137,7 @@ const Space = () => {
 					<a
 						href='https://aufabier.at'
 						target='_blank'
+						rel='noopener noreferrer'
 						style={{ textDecoration: 'none' }}>
 						auf a Bier.at
 					</a>
@@ -143,14 +153,21 @@ const Space = () => {
 				<SpaceInfo>
 					{displayJoinedSpaces(currentFloatingSpaces) ? (
 						<Fragment>
-							Sie befinden sich beim{' '}
+							Du bist beim{' '}
 							<CurrentSpace>
 								{displayJoinedSpaces(currentFloatingSpaces)}
 							</CurrentSpace>
 							!
 						</Fragment>
 					) : (
-						'Klicken Sie auf einen Tisch um beizutreten'
+						<Fragment>
+							<div> Klicke auf einen Tisch um beizutreten</div>
+							<div>
+								<a href='https://gehma.aufabier.at'>
+									oder eröffne einen Neuen Raum
+								</a>
+							</div>
+						</Fragment>
 					)}
 				</SpaceInfo>
 			</span>
