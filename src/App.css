@@ -1,10 +1,7 @@
 @font-face {
-  font-family: 'Blox2';
+  font-family: 'Roboto';
   font-style: normal;
   font-weight: 800;
-  src: url('./fonts/Blox2.ttf'); /* IE9 Compat Modes */
-  src: local('Blox2'), local('Blox2'),
-       url('./fonts/Blox2.ttf') format('truetype'), /* Safari, Android, iOS */
 }
 
 * {
@@ -14,7 +11,8 @@
 }
 
 html {
-  background-image: url("./img/background.jpg");
+  /**background-image: url("./img/background.jpg"); **/
+  background-color: black;
   background-size: cover;
   min-height: 110%;
 }
@@ -47,9 +45,9 @@ h1 {
 }
 
 .roomName {
-  font-family: "Blox2", "Courier New", Courier, monospace;
-  font-size: 1.2rem;
-  color: greenyellow;
+  font-family: "Roboto", "Courier New", Courier, monospace;
+  font-size: 3rem;
+  color: rgb(255, 251, 0);
   /* font-size: 12px; */
   width: 100%;
   /* display: block; */
@@ -61,7 +59,7 @@ h1 {
 }
 
 .roomName:hover {
-  text-shadow: 5px 0px 10px greenyellow;
+  text-shadow: 5px 0px 10px rgb(255, 166, 0);
 }
 
 /* .map-background {
@@ -146,8 +144,8 @@ h1 {
 .click-zone.a {
   transform: var(--metagame-transform);
   left: calc(var(--metagame-left) - 89px * var(--metagame-scale-ratio));
-  top: calc(var(--metagame-top) + 400px);
-  width: calc(100px * var(--metagame-scale-ratio));
+  top: calc(var(--metagame-top) + 500px);
+  width: calc(00px * var(--metagame-scale-ratio));
   height: calc(120px * var(--metagame-scale-ratio));
   background-color: transparent;
   background-image: unset;
@@ -170,10 +168,10 @@ h1 {
 
 .click-zone.b {
   transform: var(--metagame-transform);
-  left: calc(var(--metagame-left) * var(--metagame-scale-ratio));
+  left: calc(var(--metagame-left) - 395px * var(--metagame-scale-ratio));
   top: calc(var(--metagame-top) + 365px * var(--metagame-scale-ratio));
-  width: calc(140px* var(--metagame-scale-ratio));
-  height: calc(160px* var(--metagame-scale-ratio));
+  width: calc(250px* var(--metagame-scale-ratio));
+  height: calc(300px* var(--metagame-scale-ratio));
   background-color: transparent;
   background-image: unset;
   /* border: solid 1px blue; */
