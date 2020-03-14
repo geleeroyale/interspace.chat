@@ -159,19 +159,19 @@ h1 {
 }
 
 .click-zone-highlight.a {
-  height: 85px;
-  width: 82px;
-  left: 7px;
+  height: 100px;
+  width: 200px;
+  left: -120px;
   top: -2px;
   position: relative;
 }
 
 .click-zone.b {
   transform: var(--metagame-transform);
-  left: calc(var(--metagame-left) - 395px * var(--metagame-scale-ratio));
-  top: calc(var(--metagame-top) + 365px * var(--metagame-scale-ratio));
+  left: calc(var(--metagame-left) - 39px * var(--metagame-scale-ratio));
+  top: calc(var(--metagame-top) + 265px * var(--metagame-scale-ratio));
   width: calc(250px* var(--metagame-scale-ratio));
-  height: calc(300px* var(--metagame-scale-ratio));
+  height: calc(200px* var(--metagame-scale-ratio));
   background-color: transparent;
   background-image: unset;
   /* border: solid 1px blue; */
@@ -186,13 +186,14 @@ h1 {
 .click-zone-highlight.b {
   position: relative;
   height: 100px;
-  width: 70px;
+  width: 150px;
   left: 30px;
+  top: 50px;
 }
 
 .click-zone.c {
   transform: var(--metagame-transform);
-  left: calc(var(--metagame-left) - 184px * var(--metagame-scale-ratio));
+  left: calc(var(--metagame-left) + 300px * var(--metagame-scale-ratio));
   top: calc(var(--metagame-top) + 549px * var(--metagame-scale-ratio));
   width: calc(100px* var(--metagame-scale-ratio));
   height: calc(70px* var(--metagame-scale-ratio));
@@ -203,18 +204,18 @@ h1 {
 }
 
 .click-zone-highlight.c {
-  height: 60px;
-  left: 105px;
-  top: -39px;
+  height: 200px;
+  width: 100px;
+  left: 0px;
+  top: -100px;
   position: relative;
-  width: 55px;
 }
 
 
 .click-zone.d {
   transform: var(--metagame-transform);
-  left: calc(var(--metagame-left) + 168px * var(--metagame-scale-ratio));
-  top: calc(var(--metagame-top) + 535px * var(--metagame-scale-ratio));
+  left: calc(var(--metagame-left) + 320px * var(--metagame-scale-ratio));
+  top: calc(var(--metagame-top) + 335px * var(--metagame-scale-ratio));
   width: calc(100px* var(--metagame-scale-ratio));
   height: calc(100px* var(--metagame-scale-ratio));
   background-color: transparent;
@@ -230,17 +231,17 @@ h1 {
 }
 
 .click-zone-highlight.d {
+  width: 110px;
   height: 75px;
-  top: -62px;
-  left: -69px;
-  width: 70px;
+  top: 10px;
+  left: 100px;
   position: relative;
 }
 
 .click-zone.e {
   transform: var(--metagame-transform);
-  left: calc(var(--metagame-left) + 85px * var(--metagame-scale-ratio));
-  top: calc(var(--metagame-top) + 417px * var(--metagame-scale-ratio));
+  left: calc(var(--metagame-left) + 55px * var(--metagame-scale-ratio));
+  top: calc(var(--metagame-top) + 317px * var(--metagame-scale-ratio));
   width: calc(120px* var(--metagame-scale-ratio));
   height: calc(100px* var(--metagame-scale-ratio));
   background-color: transparent;
@@ -255,17 +256,17 @@ h1 {
 }
 
 .click-zone-highlight.e {
-  height: 65px;
+  width: 150px;
+  height: 100px;
   position: relative;
-  top: -2px;
-  width: 92px;
-  left: 12px;
+  top: 10px;
+  left: 44px;
 }
 
 .click-zone.f {
   transform: var(--metagame-transform);
-  left: calc(var(--metagame-left) - 2px * var(--metagame-scale-ratio));
-  top: calc(var(--metagame-top) + 269px * var(--metagame-scale-ratio));
+  left: calc(var(--metagame-left) - 200px * var(--metagame-scale-ratio));
+  top: calc(var(--metagame-top) + 190px * var(--metagame-scale-ratio));
   width: calc(140px* var(--metagame-scale-ratio));
   height: calc(25px* var(--metagame-scale-ratio));
   background-color: transparent;
@@ -278,9 +279,10 @@ h1 {
 
 .click-zone-highlight.f {
   position: relative;
-  height: 82px;
-  width: 52px;
-  left: 38px;
+  height: 100px;
+  width: 320px;
+  left: -38px;
+  top: -100px;
 }
 
 .click-zone.g {
