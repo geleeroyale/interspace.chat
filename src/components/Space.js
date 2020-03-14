@@ -126,7 +126,7 @@ const Space = () => {
 				<Headline>
 					Servas, du bist eingeladen{' '}
 					<a
-						href='https://metagame.wtf'
+						href='https://aufabier.at'
 						target='_blank'
 						style={{ textDecoration: 'none' }}>
 						auf a Bier.at
