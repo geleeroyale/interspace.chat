@@ -14,7 +14,7 @@ const Headline = styled.h6`
 	font-weight: 600;
 	font-size: 1.3rem;
 	padding: 1rem;
-	background: white;
+	background: #fde221;
 
 	a {
 		font-weight: 100;
@@ -30,6 +30,8 @@ const SpaceSelector = styled.nav`
 const SpaceInfo = styled.div`
 	font-size: 2rem;
 	color: black;
+	background: #fde221;
+	padding-bottom: 7rem;
 `;
 
 const CurrentSpace = styled.span`
