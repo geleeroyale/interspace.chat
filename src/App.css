@@ -11,7 +11,7 @@
 }
 
 html {
-  background-color: black;
+  background-color:#111111;
   background-size: cover;
   box-shadow: inset 0px 0px 30px 30px rgba(0,0,0,0.1);
   min-height: 110%;
@@ -214,8 +214,8 @@ h1 {
 .click-zone-highlight.c {
   height: 200px;
   width: 100px;
-  left: 0px;
-  top: -100px;
+  left: 100px;
+  top: -150px;
   position: relative;
 }
 
