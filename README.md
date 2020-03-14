@@ -1,6 +1,6 @@
-# Interspace.chat (METAGAME)
+# Aufabier.at (Durstlöschende Notmaßnahme)
 
-A simple selector for predefined JitSi rooms. The idea is to give the community a virtual meeting space that is easy and fun to use. Live at https://interspace.metagame.wtf
+A simple selector for predefined, self-hosted JitSi rooms. The idea is to give the community a virtual meeting space that is easy and fun to use. Live at https://aufabier.at
 
 - based on create-react-app
 - injects JitSi API
