@@ -19,7 +19,7 @@ const height = 600;
 const width = 850;
 const padding = 15;
 const innerWidth = width - padding * 2;
-let zIndexIterator = 10;
+let zIndexIterator = 100;
 
 const FloatingRoomWindowContainer = styled.div`
 	width: ${width}px;
@@ -148,12 +148,6 @@ function FloatingRoomWindow() {
 		}
 	};
 
-	let setWindowFocus = event => {
-		ReactDOM.findDOMNode(
-			event.target
-		).parentNode.style.zIndex = zIndexIterator++;
-	};
-
 	return (
 		<Fragment>
 			{floatingRoomWindows &&
@@ -163,7 +157,6 @@ function FloatingRoomWindow() {
 						<FloatingRoomWindowContainer
 							key={floatingWindow.key}
 							ref={windowFrame}
-							onMouseDown={event => setWindowFocus(event)}
 							data-window={`window-${floatingWindow.key}`}>
 							<Draggable>
 								<DraggableController>
