@@ -1,7 +1,18 @@
 import React, { Fragment, useContext, useState } from 'react';
 import styled from 'styled-components';
+import {
+	BrowserView,
+	MobileView,
+	isBrowser,
+	isMobile
+} from 'react-device-detect';
 
 import { FloatingSpaceContext } from '../contexts/FloatingSpaceContext';
+import { SpaceContext } from '../contexts/SpaceContext';
+
+import Room from './Room';
+import JitsiInstanceMobile from './integrations/JistiInstanceMobile';
+
 import { RoomNames } from '../utils/constants';
 import Biere from '../img/biere.png';
 
@@ -21,17 +32,46 @@ const Headline = styled.h6`
 		background-color: #fde221;
 		text-decoration: underline;
 	}
+
+	@media (max-width: 600px) {
+		background-color: whitesmoke;
+	}
 `;
 
 const SpaceSelector = styled.nav`
 	padding-bottom: 1rem;
 	min-height: 100vh;
+	width: 100%;
+
+	@media (max-width: 600px) {
+		background-color: black;
+		padding: 0px;
+		min-height: 10vh;
+	}
 `;
 
 const SpaceInfo = styled.div`
 	font-size: 2rem;
 	color: black;
 	padding-bottom: 7rem;
+`;
+
+const Descripton = styled.div`
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	padding: 0.5rem;
+	background-color: #fde221;
+	z-index: 1;
+	margin: 0px;
+	p {
+		padding: 0px;
+		margin: 0px;
+	}
+
+	a {
+		padding: 0px;
+	}
 `;
 
 const CurrentSpace = styled.span`
@@ -60,10 +100,25 @@ const SpaceWindowInfo = styled.p`
 	font-size: 2rem;
 `;
 
+const MobileContainer = styled.div`
+	background: black;
+	justify-content: center;
+`;
+
+const MobileSelectorContainer = styled.div`
+	background: black;
+	box-shadow: inset 0px 0px 30px 30px rgba(0, 0, 0, 0);
+	justify-content: center;
+	display: grid;
+	grid-template-columns: auto auto auto;
+	grid-gap: 0.2rem;
+`;
+
 const Space = () => {
 	const { currentFloatingSpaces, setFloatingSpaces } = useContext(
 		FloatingSpaceContext
 	);
+	const { currentSpace } = useContext(SpaceContext);
 	const [modalOpen, setModalOpen] = useState(true);
 	const launchFloatingSpace = floatingSpace => {
 		let resultantSpaces = null;
@@ -113,38 +168,41 @@ const Space = () => {
 
 	return (
 		<SpaceSelector>
-			{modalOpen && (
-				<div id='myModal' class='modal'>
-					<div class='modal-content'>
-						<img src={Biere} alt='logo' className='modal_logo'></img>
-						<p className='modal_text'>
-							Genieße die lauschige Atmosphäre in unserer Taverne.
-						</p>
-						<p className='modal_text'>
-							Setz dich an einen Tisch der Dir zusagt.
-						</p>
-						<p className='modal_text'>
-							Benötigt Chrome, screen sharing benötigt die Jitsi Chrome
-							Extension.
-						</p>
-						<button onClick={() => setModalOpen(false)} className='modal-close'>
-							Ich verstehe
-						</button>
+			<BrowserView>
+				{modalOpen && (
+					<div id='myModal' class='modal'>
+						<div class='modal-content'>
+							<img src={Biere} alt='logo' className='modal_logo'></img>
+							<p className='modal_text'>
+								Genieße die lauschige Atmosphäre in unserer Taverne.
+							</p>
+							<p className='modal_text'>
+								Setz dich an einen Tisch der Dir zusagt.
+							</p>
+							<p className='modal_text'>
+								Benötigt Chrome, screen sharing benötigt die Jitsi Chrome
+								Extension.
+							</p>
+							<button
+								onClick={() => setModalOpen(false)}
+								className='modal-close'>
+								Ich verstehe
+							</button>
+						</div>
 					</div>
-				</div>
-			)}
-			<span>
-				<Headline>
-					Servas, du bist eingeladen{' '}
-					<a
-						href='https://aufabier.at'
-						target='_blank'
-						rel='noopener noreferrer'
-						style={{ textDecoration: 'none' }}>
-						auf a Bier.at
-					</a>
-				</Headline>
-				{/*
+				)}
+				<span>
+					<Headline>
+						Servas, du bist eingeladen{' '}
+						<a
+							href='https://aufabier.at'
+							target='_blank'
+							rel='noopener noreferrer'
+							style={{ textDecoration: 'none' }}>
+							auf a Bier.at
+						</a>
+					</Headline>
+					{/*
         <span>
           Come to the chat on{" "}
           <a href="https://t.me/intercon13" target="_blank">
@@ -152,75 +210,75 @@ const Space = () => {
           </a>
         </span>
         */}
-				<SpaceInfo>
-					{displayJoinedSpaces(currentFloatingSpaces) ? (
-						<Fragment>
-							Du bist beim{' '}
-							<CurrentSpace>
-								{displayJoinedSpaces(currentFloatingSpaces)}
-							</CurrentSpace>
-							!
-						</Fragment>
-					) : (
-						<Fragment>
-							<div> Klicke auf einen Tisch um beizutreten</div>
-							<div>
-								<a href='https://gehma.aufabier.at'>
-									oder eröffne einen Neuen Raum
-								</a>
-							</div>
-						</Fragment>
-					)}
-				</SpaceInfo>
-			</span>
+					<SpaceInfo>
+						{displayJoinedSpaces(currentFloatingSpaces) ? (
+							<Fragment>
+								Du bist beim{' '}
+								<CurrentSpace>
+									{displayJoinedSpaces(currentFloatingSpaces)}
+								</CurrentSpace>
+								!
+							</Fragment>
+						) : (
+							<Fragment>
+								<div> Klicke auf einen Tisch um beizutreten</div>
+								<div>
+									<a href='https://gehma.aufabier.at'>
+										oder eröffne einen Neuen Raum
+									</a>
+								</div>
+							</Fragment>
+						)}
+					</SpaceInfo>
+				</span>
 
-			<div className='map-container'>
-				{/*
+				<div className='map-container'>
+					{/*
         <span className="mapInstructions">
           Click a location to join a conversation.
         </span>
         */}
-				<img src='gelage-jan-steen.jpeg' className='image-map' alt='map' />
-				<div
-					className='click-zone a'
-					onClick={() => launchFloatingSpace('Tisch1')}>
-					<span className='roomName'>Tisch1</span>
-					<div className='click-zone-highlight a'></div>
-				</div>
-				<div
-					className='click-zone b'
-					onClick={() => launchFloatingSpace('Tisch2')}>
-					<span className='roomName'>Tisch2</span>
-					<div className='click-zone-highlight b'></div>
-				</div>
-				<div
-					className='click-zone c'
-					onClick={() => launchFloatingSpace('Tisch3')}>
-					<span className='roomName'>Tisch3</span>
-					<div className='click-zone-highlight c'></div>
-				</div>
-				<div
-					className='click-zone d'
-					data-zone='stress-test-arena'
-					onClick={() => launchFloatingSpace('Tisch4')}>
-					<span className='roomName' style={portalStyle}>
-						Tisch4
-					</span>
-					<div className='click-zone-highlight d'></div>
-				</div>
-				<div
-					className='click-zone e'
-					onClick={() => launchFloatingSpace('Tisch5')}>
-					<span className='roomName'>Tisch5</span>
-					<div className='click-zone-highlight e'></div>
-				</div>
-				<div
-					className='click-zone f'
-					onClick={() => launchFloatingSpace('loft.radio')}>
-					<span className='roomName'>loft.radio</span>
-					<div className='click-zone-highlight f'></div>
-				</div>
-				{/*
+					<img src='gelage-jan-steen.jpeg' className='image-map' alt='map' />
+					<div
+						className='click-zone a'
+						onClick={() => launchFloatingSpace('Tisch1')}>
+						<span className='roomName'>Tisch1</span>
+						<div className='click-zone-highlight a'></div>
+					</div>
+					<div
+						className='click-zone b'
+						onClick={() => launchFloatingSpace('Tisch2')}>
+						<span className='roomName'>Tisch2</span>
+						<div className='click-zone-highlight b'></div>
+					</div>
+					<div
+						className='click-zone c'
+						onClick={() => launchFloatingSpace('Tisch3')}>
+						<span className='roomName'>Tisch3</span>
+						<div className='click-zone-highlight c'></div>
+					</div>
+					<div
+						className='click-zone d'
+						data-zone='stress-test-arena'
+						onClick={() => launchFloatingSpace('Tisch4')}>
+						<span className='roomName' style={portalStyle}>
+							Tisch4
+						</span>
+						<div className='click-zone-highlight d'></div>
+					</div>
+					<div
+						className='click-zone e'
+						onClick={() => launchFloatingSpace('Tisch5')}>
+						<span className='roomName'>Tisch5</span>
+						<div className='click-zone-highlight e'></div>
+					</div>
+					<div
+						className='click-zone f'
+						onClick={() => launchFloatingSpace('loft.radio')}>
+						<span className='roomName'>loft.radio</span>
+						<div className='click-zone-highlight f'></div>
+					</div>
+					{/*
 				<div
 					className='click-zone g'
 					onClick={() => launchFloatingSpace('rTrees')}>
@@ -228,8 +286,8 @@ const Space = () => {
 					<div className='click-zone-highlight g'></div>
         </div>
         */}
-			</div>
-			{/*
+				</div>
+				{/*
       <Disclaimer>
         Feel free to make improvements to the map, download the .psd file{" "}
         <a href="https://www.dropbox.com/s/cocwaannzy8lqty/Interspace%20v0.2.psd?dl=0">
@@ -243,6 +301,36 @@ const Space = () => {
           : null}
       </SpaceWindowInfo>
         */}
+			</BrowserView>
+			<MobileView>
+				<MobileContainer>
+					<Headline>
+						Servas, du bist eingeladen{' '}
+						<a
+							href='https://aufabier.at'
+							target='_blank'
+							rel='noopener noreferrer'
+							style={{ textDecoration: 'none' }}>
+							auf a Bier.at
+						</a>
+					</Headline>
+					<Descripton>
+						<p> Klicke auf einen Tisch um beizutreten</p>
+
+						<a href='https://gehma.aufabier.at'>
+							oder eröffne einen Neuen Raum
+						</a>
+					</Descripton>
+					<MobileSelectorContainer>
+						<Room roomName='tisch1' />
+						<Room roomName='tisch2' />
+						<Room roomName='tisch3' />
+						<Room roomName='tisch4' />
+						<Room roomName='tisch5' />
+					</MobileSelectorContainer>
+					<JitsiInstanceMobile />
+				</MobileContainer>
+			</MobileView>
 		</SpaceSelector>
 	);
 };

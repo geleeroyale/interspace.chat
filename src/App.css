@@ -14,7 +14,16 @@ html {
   background-color:whitesmoke;
   background-size: cover;
   box-shadow: inset 0px 0px 30px 30px rgba(0,0,0,0.1);
-  min-height: 110%;
+  margin: 0px;
+  padding: 0px;
+  @media (max-width: 600px) {
+    top: 0px;
+    position: absolute;
+    min-height: 100vh;
+    background-color: black;
+
+  box-shadow: inset 0px 0px 30px 30px rgba(0,0,0,0);
+  }
 }
 
 .body {
@@ -49,13 +58,16 @@ h1 {
   font-size: 3rem;
   color: #FDE22100;
   /* font-size: 12px; */
-  width: 100%;
   /* display: block; */
   padding: auto;
   /* margin-top: -20px; */
   background-image: unset;
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0.0);
   transition: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.active {
+  color: red;
 }
 
 /* .map-background {
@@ -131,6 +143,38 @@ h1 {
   background: beige;
   border: 3px groove yellow;
 }
+
+/* MOBILE */
+
+.click-zone-mobile {
+  position: static;
+  width: 100%;
+  padding: 0.5rem;
+  /* z-index: 2; */
+  /* border: 1px solid grey; */
+}
+.click-zone-mobile:hover {
+  background-color: white;
+  cursor: pointer;
+  /* z-index: 2; */
+  /* border: 1px solid grey; */
+}
+
+.roomFont {
+  padding: 0.5rem;
+  color: #FDE22190;
+  font-weight: 800;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  background-color: black;
+}
+
+.roomFont:hover {
+  background-color: white;
+  color: red;
+}
+
+/* DESKTOP */
 
 .click-zone {
   position: absolute;
@@ -369,3 +413,4 @@ h1 {
 .modal_logo {
   height: 180px;
 }
+

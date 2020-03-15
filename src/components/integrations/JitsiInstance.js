@@ -9,6 +9,7 @@ const JitsiInstance = ({ width, height, roomData }) => {
 			roomName: roomData.roomName,
 			width: width,
 			height: height,
+			interfaceConfigOverwrite: { defaultLanguage: `de` },
 			parentNode: document.querySelector('#meet')
 		};
 		const api = new JitsiMeetExternalAPI(roomData.domain, options);
