@@ -115,18 +115,6 @@ function FloatingRoomWindow() {
 							/>
 						)
 					});
-				} else if (currentSpace === 'rTrees') {
-					newFloatingRooms.push({
-						key: currentSpace,
-						element: (
-							<RTreesInstance
-								backgroundColor={'white'}
-								width={innerWidth}
-								space={currentSpace}
-								height={height}
-							/>
-						)
-					});
 				} else if (currentSpace === null) {
 					newFloatingRooms.push(null);
 				}

@@ -1,5 +1,13 @@
 const domain = 'gehma.aufabier.at';
 
+export const JitsiInstances = [
+	'tisch1',
+	'tisch2',
+	'tisch3',
+	'tisch4',
+	'tisch5'
+];
+
 export const RoomURLs = {
 	Tisch1: {
 		jitsi: {
