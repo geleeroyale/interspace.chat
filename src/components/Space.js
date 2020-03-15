@@ -100,6 +100,12 @@ const SpaceWindowInfo = styled.p`
 	font-size: 2rem;
 `;
 
+const NewRoomLink = styled.a`
+	font-weight: 100;
+	font-size: 1rem;
+	text-decoration-color: #555555;
+`;
+
 const MobileContainer = styled.div`
 	background: black;
 	justify-content: center;
@@ -221,11 +227,11 @@ const Space = () => {
 							</Fragment>
 						) : (
 							<Fragment>
-								<div> Klicke auf einen Tisch um beizutreten</div>
+								<div> Klicke auf einen Tisch im Bild, um beizutreten.</div>
 								<div>
-									<a href='https://gehma.aufabier.at'>
-										oder eröffne einen Neuen Raum
-									</a>
+									<NewRoomLink href='https://gehma.aufabier.at'>
+										Oder eröffne einen Neuen Raum
+									</NewRoomLink>
 								</div>
 							</Fragment>
 						)}
