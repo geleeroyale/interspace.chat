@@ -60,10 +60,7 @@ const ShareButton = () => {
 				href={`http://www.facebook.com/sharer.php?u=${url}`}
 				target='_blank'
 				rel='noopener noreferrer'>
-				<img
-					src='https://simplesharebuttons.com/images/somacro/facebook.png'
-					alt='Facebook'
-				/>
+				<img src={FacebookButton} alt='Facebook' />
 			</a>
 
 			{/*  Google+ 
@@ -114,10 +111,7 @@ const ShareButton = () => {
 				href={`http://reddit.com/submit?url=${url}&amp;title=Geh ma auf a Bier`}
 				target='_blank'
 				rel='noopener noreferrer'>
-				<img
-					src='https://simplesharebuttons.com/images/somacro/reddit.png'
-					alt='Reddit'
-				/>
+				<img src={RedditButton} alt='Reddit' />
 			</a>
 
 			{/*  StumbleUpon
@@ -151,10 +145,7 @@ const ShareButton = () => {
 				href={`https://twitter.com/share?url=${url}&amp;text=Geh%20ma%20mal%20wieder&amp;hashtags=schauMaInsGsicht, aufABier`}
 				target='_blank'
 				rel='noopener noreferrer'>
-				<img
-					src='https://simplesharebuttons.com/images/somacro/twitter.png'
-					alt='Twitter'
-				/>
+				<img src={TwitterButton} alt='Twitter' />
 			</a>
 
 			{/*  VK 
