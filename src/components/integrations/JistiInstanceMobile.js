@@ -14,12 +14,11 @@ const ContainerPlaceholder = styled.div`
 `;
 
 const JitsiContainer = styled.div`
-	width: 94vw;
 	height: auto;
 	display: grid;
 	justify-self: center;
 	margin: 0 auto;
-	padding: 0.5rem 0;
+	padding: 0.5rem;
 `;
 
 const JitsiInstanceMobile = () => {

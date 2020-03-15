@@ -60,12 +60,13 @@ const Descripton = styled.div`
 	position: absolute;
 	top: 0px;
 	width: 100%;
-	padding: 0.5rem;
 	background-color: #fde221;
 	z-index: 1;
 	margin: 0px;
+	font-size: 0.8rem;
+	padding-bottom: 0.4rem;
 	p {
-		padding: 0px;
+		padding: 0.5rem;
 		margin: 0px;
 	}
 
