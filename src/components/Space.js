@@ -191,7 +191,7 @@ const Space = () => {
 								Extension.
 							</p>
 							<p className='modal_text'>
-								Die Chat logs sind nicht öffentlich, aber werden bei ihnen lokal
+								Die Chat logs sind nicht öffentlich, aber werden bei Dir lokal
 								gespeichert, bitte schreibe keine sensitiven Daten in den Chat.
 							</p>
 							<button
