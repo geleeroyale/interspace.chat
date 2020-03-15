@@ -58,12 +58,6 @@ h1 {
   transition: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.roomName:hover {
-  color: #FDE22190;
-  text-shadow: 0px 0px 10px #FDE221;
-  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.247);
-}
-
 /* .map-background {
     position: absolute;
     left: 0;
@@ -165,7 +159,8 @@ h1 {
 
 .click-zone.a .roomName {
   position: relative;
-  left: -82px;
+  left: -100px;
+  top: 160px;
 }
 
 .click-zone-highlight.a {
@@ -323,7 +318,10 @@ h1 {
 
 .click-zone:hover .click-zone-highlight {
   border: solid 0.5px #FDE22190;
-  box-shadow: 0px 0px 10px #FDE22190;
+  box-shadow: 0px 0px 10px #FDE221;
+
+  color: #FDE221;
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.247);
 }
 
 .modal {
