@@ -47,19 +47,21 @@ h1 {
 .roomName {
   font-family: "Roboto", "Courier New", Courier, monospace;
   font-size: 3rem;
-  color: #FDE22180;
+  color: #FDE22100;
   /* font-size: 12px; */
   width: 100%;
   /* display: block; */
   padding: auto;
   /* margin-top: -20px; */
-  background-color:rgba(0, 0, 255, 0);
   background-image: unset;
-  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.247);
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.0);
+  transition: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .roomName:hover {
-  text-shadow: 5px 0px 10px rgb(255, 166, 0);
+  color: #FDE22190;
+  text-shadow: 0px 0px 10px #FDE221;
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.247);
 }
 
 /* .map-background {
@@ -114,7 +116,7 @@ h1 {
   position: absolute;
   left: calc(var(--metagame-left) + var(--metagame-width)*var(--metagame-scale-ratio) - 5%);
   top: calc(var(--metagame-top) + 5%);
-  color: greenyellow;
+  color: #FDE22190;
 }
 
 /* .map-container:hover > * {
@@ -138,12 +140,12 @@ h1 {
 
 .click-zone {
   position: absolute;
-
+  transition: 0.1s cubic-bezier(0.2, 0.8, 0.2, 1);
   /* z-index: 2; */
   /* border: 1px solid grey; */
 }
 .click-zone:hover {
-  text-shadow: 5px 0px 10px rgb(255, 166, 0);
+  text-shadow: 0px 0px 0px #FDE22190;
   cursor: pointer;
   /* z-index: 2; */
   /* border: 1px solid grey; */
@@ -320,7 +322,8 @@ h1 {
 }
 
 .click-zone:hover .click-zone-highlight {
-  border: solid 0.5px orange;;
+  border: solid 0.5px #FDE22190;
+  box-shadow: 0px 0px 10px #FDE22190;
 }
 
 .modal {
