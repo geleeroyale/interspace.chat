@@ -31,21 +31,21 @@ const FloatingRoomWindowContainer = styled.div`
 `;
 
 const FloatingRoomWindowCloser = styled.div`
-    width: 18px;
-    height 30px;
-    opacity: 0.7;
-    transition: all 0.2s ease-in-out;
-    cursor: pointer;
-    &:hover {
-        opacity: 1;
-    }
-    &::before {
-        content: '×'; // here is your X(cross) sign.
-        color: #fff;
-        font-family: Arial, sans-serif;
-        font-weight: bold;
-        font-size: 30px;
-    }
+	width: 18px;
+	height: 30px;
+	opacity: 0.7;
+	transition: all 0.2s ease-in-out;
+	cursor: pointer;
+	&:hover {
+		opacity: 1;
+	}
+	&::before {
+		content: '×'; // here is your X(cross) sign.
+		color: #fff;
+		font-family: Arial, sans-serif;
+		font-weight: bold;
+		font-size: 30px;
+	}
 `;
 
 const DraggableController = styled.div`
