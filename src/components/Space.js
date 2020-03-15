@@ -187,8 +187,12 @@ const Space = () => {
 								Setz dich an einen Tisch der Dir zusagt.
 							</p>
 							<p className='modal_text'>
-								Benötigt Chrome, screen sharing benötigt die Jitsi Chrome
+								Bevorzugt Chrome, screen sharing benötigt die Jitsi Chrome
 								Extension.
+							</p>
+							<p className='modal_text'>
+								Die Chat logs sind nicht öffentlich, aber werden bei ihnen lokal
+								gespeichert, bitte schreibe keine sensitiven Daten in den Chat.
 							</p>
 							<button
 								onClick={() => setModalOpen(false)}
