@@ -19,7 +19,7 @@ const height = 600;
 const width = 850;
 const padding = 15;
 const innerWidth = width - padding * 2;
-let zIndexIterator = 100;
+let zIndexIterator = 1000;
 
 const FloatingRoomWindowContainer = styled.div`
 	width: ${width}px;
@@ -58,7 +58,8 @@ const DraggableController = styled.div`
 	box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
 		0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
 	&:active iframe {
-		pointer-events: none;
+		pointer-events: all;
+		cursor: unset;
 	}
 `;
 
