@@ -11,7 +11,7 @@
 }
 
 html {
-  background-color:#111111;
+  background-color:whitesmoke;
   background-size: cover;
   box-shadow: inset 0px 0px 30px 30px rgba(0,0,0,0.1);
   min-height: 110%;
@@ -30,7 +30,7 @@ h1 {
 }
 
 .App-header {
-  background-color: #FDE221;
+  background-color: whitesmoke;
   display: flex;
   flex-direction: column;
   text-align: center;

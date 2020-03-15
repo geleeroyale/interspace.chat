@@ -14,28 +14,28 @@ const Headline = styled.h6`
 	font-weight: 600;
 	font-size: 1.3rem;
 	padding: 1rem;
-	background: #fde221;
 
 	a {
 		font-weight: 100;
-		color: red;
+		color: black;
+		background-color: #fde221;
 		text-decoration: underline;
 	}
 `;
 
 const SpaceSelector = styled.nav`
 	padding-bottom: 1rem;
+	min-height: 100vh;
 `;
 
 const SpaceInfo = styled.div`
 	font-size: 2rem;
 	color: black;
-	background: #fde221;
 	padding-bottom: 7rem;
 `;
 
 const CurrentSpace = styled.span`
-	color: pink;
+	color: #111111;
 `;
 
 const Disclaimer = styled.div`
