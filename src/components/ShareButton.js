@@ -1,5 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import EmailButton from '../img/email.png';
+import FacebookButton from '../img/facebook.png';
+import RedditButton from '../img/reddit.png';
+import TwitterButton from '../img/twitter.png';
 
 const ButtonContainer = styled.div`
 	display: flex;
@@ -48,10 +52,7 @@ const ShareButton = () => {
 			{/*  Email */}
 			<a
 				href={`mailto:?Subject=Auf-A-Bier&amp;Body=Wir%20haben%20uns%20viel%20zu%20erzaehlen!%20 ${url}`}>
-				<img
-					src='https://simplesharebuttons.com/images/somacro/email.png'
-					alt='Email'
-				/>
+				<img src={EmailButton} alt='Email' />
 			</a>
 
 			{/*  Facebook */}
