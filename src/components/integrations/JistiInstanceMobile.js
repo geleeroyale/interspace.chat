@@ -7,6 +7,12 @@ import '../../App.css';
 
 const JitsiMeetExternalAPI = window.JitsiMeetExternalAPI;
 
+const Container = styled.div``;
+
+const ContainerPlaceholder = styled.div`
+	opacity: 0;
+`;
+
 const JitsiContainer = styled.div`
 	width: 94vw;
 	height: auto;
@@ -24,7 +30,7 @@ const JitsiInstanceMobile = () => {
 	const height = 400;
 
 	useEffect(() => {
-		const domain = 'interspace.geleeroyale.work';
+		const domain = 'gehma.aufabier.at';
 		const options = {
 			roomName: currentSpace,
 			//     width: width,
@@ -41,7 +47,15 @@ const JitsiInstanceMobile = () => {
 		};
 	});
 
-	return <JitsiContainer id='meet'></JitsiContainer>;
+	return (
+		<Container>
+			{currentSpace === '' ? (
+				<ContainerPlaceholder id='meet' />
+			) : (
+				<JitsiContainer id='meet'></JitsiContainer>
+			)}
+		</Container>
+	);
 };
 
 export default JitsiInstanceMobile;
