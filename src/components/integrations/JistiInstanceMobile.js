@@ -35,7 +35,6 @@ const JitsiInstanceMobile = () => {
 			//     width: width,
 			height: height,
 			interfaceConfigOverwrite: { defaultLanguage: `de` },
-			interfaceConfigOverwrite: { MOBILE_APP_PROMO: false },
 			parentNode: document.querySelector('#meet')
 		};
 		const api = new JitsiMeetExternalAPI(domain, options);
