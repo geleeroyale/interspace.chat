@@ -148,6 +148,12 @@ function FloatingRoomWindow() {
 		}
 	};
 
+	let setWindowFocus = event => {
+		ReactDOM.findDOMNode(
+			event.target
+		).parentNode.style.zIndex = zIndexIterator++;
+	};
+
 	return (
 		<Fragment>
 			{floatingRoomWindows &&
@@ -157,6 +163,7 @@ function FloatingRoomWindow() {
 						<FloatingRoomWindowContainer
 							key={floatingWindow.key}
 							ref={windowFrame}
+							onMouseDown={event => setWindowFocus(event)}
 							data-window={`window-${floatingWindow.key}`}>
 							<Draggable>
 								<DraggableController>
