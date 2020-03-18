@@ -1,13 +1,9 @@
 import React, { Fragment, useContext, useState } from 'react';
 import styled from 'styled-components';
-import {
-	BrowserView,
-	MobileView,
-	isBrowser,
-	isMobile
-} from 'react-device-detect';
+import { BrowserView, MobileView } from 'react-device-detect';
 
 import { FloatingSpaceContext } from '../contexts/FloatingSpaceContext';
+import { HouseContext } from '../contexts/HouseContext';
 import { SpaceContext } from '../contexts/SpaceContext';
 
 import Room from './Room';
@@ -288,6 +284,12 @@ const Space = () => {
 						onClick={() => launchFloatingSpace('loft.radio')}>
 						<span className='roomName'>loft.radio</span>
 						<div className='click-zone-highlight f'></div>
+					</div>
+					<div
+						className='click-zone g'
+						onClick={() => launchFloatingSpace('chat')}>
+						<span className='roomName'>chat</span>
+						<div className='click-zone-highlight g'></div>
 					</div>
 					{/*
 				<div
