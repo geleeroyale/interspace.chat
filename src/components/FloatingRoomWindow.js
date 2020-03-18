@@ -11,6 +11,8 @@ import Draggable from 'react-draggable';
 
 import { FloatingSpaceContext } from '../contexts/FloatingSpaceContext';
 import LoftRadioInstance from './integrations/LoftRadioInstance';
+import ChatInstance from './integrations/ChatInstance';
+import YoutubeInstance from './integrations/YoutubeInstance';
 import RTreesInstance from './integrations/RTreesInstance';
 import RoomInstance from './RoomInstance';
 import { RoomNames } from '../utils/constants';
@@ -103,6 +105,13 @@ function FloatingRoomWindow() {
 							<LoftRadioInstance
 								width={innerWidth}
 								height={height}></LoftRadioInstance>
+						)
+					});
+				} else if (currentSpace === 'chat') {
+					newFloatingRooms.push({
+						key: currentSpace,
+						element: (
+							<ChatInstance width={innerWidth} height={height}></ChatInstance>
 						)
 					});
 				} else if (RoomNames.indexOf(currentSpace) > -1) {
