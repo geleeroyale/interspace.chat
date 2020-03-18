@@ -2,13 +2,16 @@ import React from 'react';
 
 import UserContextProvider from './UserContext';
 import FloatingSpaceContextProvider from './FloatingSpaceContext';
+import HouseContextProvider from './HouseContext';
 
 const RootContextProvider = props => {
 	return (
 		<UserContextProvider>
-			<FloatingSpaceContextProvider>
-				{props.children}
-			</FloatingSpaceContextProvider>
+			<HouseContextProvider>
+				<FloatingSpaceContextProvider>
+					{props.children}
+				</FloatingSpaceContextProvider>
+			</HouseContextProvider>
 		</UserContextProvider>
 	);
 };
