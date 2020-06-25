@@ -200,6 +200,7 @@ const Space = () => {
 								<a
 									href='https://www.patreon.com/bePatron?u=32927319'
 									target='_blank'
+									rel='noopener noreferrer'
 									className='modal_text modal-link'>
 									Patreon
 								</a>
