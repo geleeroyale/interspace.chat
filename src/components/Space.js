@@ -1,24 +1,24 @@
-import React, { Fragment, useContext, useState } from 'react';
-import styled from 'styled-components';
+import React, { Fragment, useContext, useState } from 'react'
+import styled from 'styled-components'
 import {
 	BrowserView,
 	MobileView,
 	isBrowser,
 	isMobile
-} from 'react-device-detect';
+} from 'react-device-detect'
 
-import { FloatingSpaceContext } from '../contexts/FloatingSpaceContext';
-import { SpaceContext } from '../contexts/SpaceContext';
+import { FloatingSpaceContext } from '../contexts/FloatingSpaceContext'
+import { SpaceContext } from '../contexts/SpaceContext'
 
-import Room from './Room';
-import JitsiInstanceMobile from './integrations/JistiInstanceMobile';
+import Room from './Room'
+import JitsiInstanceMobile from './integrations/JistiInstanceMobile'
 
-import { RoomNames } from '../utils/constants';
-import Biere from '../img/biere.png';
+import { RoomNames } from '../utils/constants'
+import Biere from '../img/biere.png'
 
 const portalStyle = {
 	marginTop: '10px'
-};
+}
 
 const Headline = styled.h6`
 	color: black;
@@ -36,7 +36,7 @@ const Headline = styled.h6`
 	@media (max-width: 600px) {
 		background-color: whitesmoke;
 	}
-`;
+`
 
 const SpaceSelector = styled.nav`
 	padding-bottom: 1rem;
@@ -48,13 +48,13 @@ const SpaceSelector = styled.nav`
 		padding: 0px;
 		min-height: 10vh;
 	}
-`;
+`
 
 const SpaceInfo = styled.div`
 	font-size: 2rem;
 	color: black;
 	padding-bottom: 7rem;
-`;
+`
 
 const Descripton = styled.div`
 	position: absolute;
@@ -73,17 +73,17 @@ const Descripton = styled.div`
 	a {
 		padding: 0px;
 	}
-`;
+`
 
 const CurrentSpace = styled.span`
 	color: #111111;
-`;
+`
 
 const Disclaimer = styled.div`
 	position: relative;
 	top: 800px;
 	background: unset;
-`;
+`
 
 const Watermark = styled.div`
 	position: relative;
@@ -93,24 +93,24 @@ const Watermark = styled.div`
 	display: flex;
 	flex-direction: column;
 	margin: auto;
-`;
+`
 
 const SpaceWindowInfo = styled.p`
 	position: relative;
 	top: 790px;
 	font-size: 2rem;
-`;
+`
 
 const NewRoomLink = styled.a`
 	font-weight: 100;
 	font-size: 1rem;
 	text-decoration-color: #555555;
-`;
+`
 
 const MobileContainer = styled.div`
 	background: black;
 	justify-content: center;
-`;
+`
 
 const MobileSelectorContainer = styled.div`
 	background: black;
@@ -119,59 +119,59 @@ const MobileSelectorContainer = styled.div`
 	display: grid;
 	grid-template-columns: auto auto auto;
 	grid-gap: 0.2rem;
-`;
+`
 
 const Space = () => {
 	const { currentFloatingSpaces, setFloatingSpaces } = useContext(
 		FloatingSpaceContext
-	);
-	const { currentSpace } = useContext(SpaceContext);
-	const [modalOpen, setModalOpen] = useState(true);
-	const launchFloatingSpace = floatingSpace => {
-		let resultantSpaces = null;
+	)
+	const { currentSpace } = useContext(SpaceContext)
+	const [modalOpen, setModalOpen] = useState(true)
+	const launchFloatingSpace = (floatingSpace) => {
+		let resultantSpaces = null
 		if (currentFloatingSpaces && currentFloatingSpaces.length > 0) {
 			if (currentFloatingSpaces.indexOf(floatingSpace) > -1) {
-				resultantSpaces = currentFloatingSpaces;
+				resultantSpaces = currentFloatingSpaces
 			} else if (RoomNames.indexOf(floatingSpace) > -1) {
-				let replaceIndex;
+				let replaceIndex
 				for (let instance of RoomNames) {
 					if (currentFloatingSpaces.indexOf(instance) > -1) {
-						replaceIndex = currentFloatingSpaces.indexOf(instance);
+						replaceIndex = currentFloatingSpaces.indexOf(instance)
 					}
 				}
 				if (replaceIndex > -1) {
-					let spliceJitsiDuplicates = [...currentFloatingSpaces]; // Prepare for splice
-					spliceJitsiDuplicates.splice(replaceIndex, 1, floatingSpace);
-					resultantSpaces = [...spliceJitsiDuplicates];
+					let spliceJitsiDuplicates = [...currentFloatingSpaces] // Prepare for splice
+					spliceJitsiDuplicates.splice(replaceIndex, 1, floatingSpace)
+					resultantSpaces = [...spliceJitsiDuplicates]
 				} else {
-					resultantSpaces = [...currentFloatingSpaces, floatingSpace];
+					resultantSpaces = [...currentFloatingSpaces, floatingSpace]
 				}
 			} else {
-				resultantSpaces = [...currentFloatingSpaces, floatingSpace];
+				resultantSpaces = [...currentFloatingSpaces, floatingSpace]
 			}
 		} else {
-			resultantSpaces = [floatingSpace];
+			resultantSpaces = [floatingSpace]
 		}
-		setFloatingSpaces(resultantSpaces);
-	};
+		setFloatingSpaces(resultantSpaces)
+	}
 
-	const displayJoinedSpaces = floatingSpaceWindows => {
-		let windowsWithoutPlaceholders = floatingSpaceWindows.filter(item => item);
+	const displayJoinedSpaces = (floatingSpaceWindows) => {
+		let windowsWithoutPlaceholders = floatingSpaceWindows.filter((item) => item)
 		if (windowsWithoutPlaceholders.length > 0) {
 			if (windowsWithoutPlaceholders.length > 2) {
-				let nameCount = windowsWithoutPlaceholders.length;
+				let nameCount = windowsWithoutPlaceholders.length
 				return (
 					windowsWithoutPlaceholders.slice(0, nameCount - 2).join(', ') +
 					', ' +
 					windowsWithoutPlaceholders.slice(nameCount - 2, nameCount).join(' & ')
-				);
+				)
 			} else {
-				return windowsWithoutPlaceholders.join(' & ');
+				return windowsWithoutPlaceholders.join(' & ')
 			}
 		} else {
-			return null;
+			return null
 		}
-	};
+	}
 
 	return (
 		<SpaceSelector>
@@ -194,6 +194,17 @@ const Space = () => {
 								Die Chat logs sind nicht öffentlich, aber werden bei Dir lokal
 								gespeichert, bitte schreibe keine sensitiven Daten in den Chat.
 							</p>
+
+							<p className='modal_text'>
+								Wenn dir auf a Bier schmeckt, bitte untersütze uns auf{' '}
+								<a
+									href='https://www.patreon.com/bePatron?u=32927319'
+									target='_blank'
+									className='modal_text modal-link'>
+									Patreon
+								</a>
+							</p>
+
 							<button
 								onClick={() => setModalOpen(false)}
 								className='modal-close'>
@@ -343,7 +354,7 @@ const Space = () => {
 				</MobileContainer>
 			</MobileView>
 		</SpaceSelector>
-	);
-};
+	)
+}
 
-export default Space;
+export default Space
